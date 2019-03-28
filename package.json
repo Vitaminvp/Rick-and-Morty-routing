@@ -6,6 +6,7 @@
   "author": "OleksiyRudenko <oleksiy.rudenko@gmail.com>",
   "license": "MIT",
   "private": false,
+  "homepage": "https://vitaminvp.github.io/Rick-and-Morty-routing/",
   "scripts": {
     "start": "parcel ./src/index.html",
     "prebuild-dev": "shx rm -rf dist/",
