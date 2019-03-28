@@ -80,7 +80,7 @@ export default class Nav extends Component {
                                         value: '#/login'
                                     },
                                 ],
-                                content: 'Breadcrumb'
+                                content: 'Login'
                             }
                         ]
                     },
