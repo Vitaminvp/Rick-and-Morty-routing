@@ -1,4 +1,3 @@
-// import NotFound from "../Components/NotFound/NotFound";
 import {Breadcrumb} from "../Components/Breadcrumb";
 
 
@@ -25,6 +24,8 @@ export default class Router {
     handleUrlChange(){
         if(!location.hash){
             location.assign(`/#${location.pathname}`);
+        } else if (!location.hash.slice(1).startsWith('/')) {
+            location.assign(`#/${location.hash.slice(1)}`);
         } else {
             const browserUrlArr = location.hash.split('/').slice(1);
             this.findRoute(browserUrlArr);

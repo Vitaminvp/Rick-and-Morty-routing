@@ -12,9 +12,8 @@ export default class Nav extends Component {
                 tag: 'div',
                 classList: 'header',
                 content: `<div class="header">
-                              <h2>The Rick and Morty API</h2>
-                              <p><a href="https://rickandmortyapi.com/" target="_blank">https://rickandmortyapi.com/</a></p>
-                              <p>Kottans homework routing.</p>
+                              <h2><a href="https://github.com/kottans">#Kottans</a> Homework routing.</h2>
+                              <p><a href="https://rickandmortyapi.com/" target="_blank">The Rick and Morty API</a></p>
                             </div>`
             },
             {

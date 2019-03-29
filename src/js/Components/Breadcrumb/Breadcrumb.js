@@ -34,17 +34,24 @@ export default class Breadcrumb extends Component {
                     },
                     ...this.props.path.split('/').slice(0).map((item, i) => {
                         if(item){
-                            console.log("item", item);
-                            return {
-                                tag: item === ':id'? 'span' : 'a',
-                                classList: 'breadcrumbs-link',
-                                content: item === ':id'? this.state ? this.state.name: '' : item,
-                                attributes: [
-                                    {
-                                        name: 'href',
-                                        value: item === ':id'?  '' : `#/${item}` //this.state ? `${item[i-1]}/${this.state.id}`:
-                                    },
-                                ],
+                            if(item === ':id'){
+                                return {
+                                    tag: 'span',
+                                    classList: 'breadcrumbs-link',
+                                    content: this.state ? this.state.name: ''
+                                }
+                            } else {
+                                return {
+                                    tag: 'a',
+                                    classList: 'breadcrumbs-link',
+                                    content: item === ':id'? this.state ? this.state.name: '' : item,
+                                    attributes: [
+                                        {
+                                            name: 'href',
+                                            value: item === ':id'?  '' : `#/${item}` //this.state ? `${item[i-1]}/${this.state.id}`:
+                                        },
+                                    ],
+                                }
                             }
                         }
                         else {
