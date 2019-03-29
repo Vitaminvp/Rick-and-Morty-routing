@@ -1,5 +1,8 @@
-body {
+html {
     font-size: 16px;
+}
+body {
+
 }
 
 p.text {
@@ -73,11 +76,13 @@ div.desc {
 
 .pagination{
     text-align: center;
+    margin: 10px;
 }
 
 .pagination a {
     cursor: pointer;
     color: #333;
+    font-size: 1.1em;
 }
 
 .pagination a.currentPage {
