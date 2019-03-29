@@ -36,7 +36,7 @@ export default class Breadcrumb extends Component {
                         if(item){
                             console.log("item", item);
                             return {
-                                tag: 'a',
+                                tag: item === ':id'? 'span' : 'a',
                                 classList: 'breadcrumbs-link',
                                 content: item === ':id'? this.state ? this.state.name: '' : item,
                                 attributes: [
