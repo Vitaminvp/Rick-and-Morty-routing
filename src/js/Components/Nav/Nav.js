@@ -61,7 +61,7 @@ export default class Nav extends Component {
                                 attributes: [
                                     {
                                         name: 'href',
-                                        value: '#/user/posts'
+                                        value: '#/posts'
                                     },
                                 ],
                                 content: 'Posts'

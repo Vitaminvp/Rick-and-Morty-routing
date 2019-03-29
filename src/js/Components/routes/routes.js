@@ -12,7 +12,7 @@ export const routes = [
         component: Main
     },
     {
-        path: 'user/posts',
+        path: 'posts',
         component: Posts
     },
     {
@@ -21,7 +21,7 @@ export const routes = [
         guards: [isLogged]
     },
     {
-        path: 'user/:id',
+        path: 'users/:id',
         component: User
     },
     {
@@ -29,7 +29,7 @@ export const routes = [
         component: Login
     },
     {
-        path: '**',
+        path: '404',
         component: NotFound
     }
 ];

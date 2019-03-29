@@ -1,13 +1,16 @@
-import NotFound from "../Components/NotFound/NotFound";
+// import NotFound from "../Components/NotFound/NotFound";
+import {Breadcrumb} from "../Components/Breadcrumb";
 
 
 export default class Router {
     constructor(host, routes, App){
         this.host = host;
         this.routes = routes;
-        this.NotFound = this.routes.find(route => route.path === '**');
+        this.NotFound = this.routes.find(route => route.path === '404');
+        this.breadcrumb = document.createElement('DIV');
         this.target = document.createElement('DIV');
         this.app = new App(host, {
+            breadcrumb: this.breadcrumb,
             target: this.target
         });
         this.handleUrlChange = this.handleUrlChange.bind(this);
@@ -54,13 +57,16 @@ export default class Router {
 
     isUrlEqualRoute(browserUrlArr, route){
         const routePathArr = route.path.split('/');
-        return browserUrlArr.every((urlPart, i) => routePathArr[i] === urlPart || routePathArr[i].startsWith(':'));
+        return browserUrlArr.every((urlPart, i) => routePathArr[i] && routePathArr[i].startsWith(':') || routePathArr[i] === urlPart );
     }
     renderComponent(route, params){
         if(route.guards){
             const checkGuards = route.guards.every(guard => guard());
             if(!checkGuards) return;
         }
+        //console.log("route", route);
+        //console.log("params", params);
+        const breadcrumbs = new Breadcrumb(this.breadcrumb, { path: route.path });
         const newComponent = new route.component(this.target, params);
     }
 }

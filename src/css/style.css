@@ -88,7 +88,25 @@ div.desc {
 .pagination a:not(:first-child) {
     margin: 0 5px;
 }
+.breadcrumb{
+    padding: 10px;
+}
+.breadcrumbs-link {
+    margin:  5px 10px;
+    text-transform: capitalize;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+}
+.breadcrumbs-link:not(:last-child):after {
+    content: '/';
+    position: absolute;
+    left: calc(100% + 8px);
+    top: 1px;
+    font-weight: bold;
+    color: #4CAF50;
 
+}
 @media screen and (max-width: 480px) {
     ul.topnav li.right,
     ul.topnav li {float: none;}

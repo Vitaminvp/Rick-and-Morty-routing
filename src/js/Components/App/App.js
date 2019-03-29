@@ -12,6 +12,7 @@ export default class App extends Component {
                 tag: Nav,
                 props: {}
             },
+            this.props.breadcrumb,
             this.props.target
         ];
 

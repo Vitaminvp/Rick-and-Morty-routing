@@ -53,7 +53,7 @@ export default class Users extends Component {
                                     attributes: [
                                         {
                                             name: 'href',
-                                            value: `#/user/${user.id}`
+                                            value: `#/users/${user.id}`
                                         }
                                     ],
                                     children: [
@@ -67,7 +67,7 @@ export default class Users extends Component {
                                                 },
                                                 {
                                                     name: 'alt',
-                                                    value: `#/user/${user.name}`
+                                                    value: user.name
                                                 },
                                             ],
                                         }
