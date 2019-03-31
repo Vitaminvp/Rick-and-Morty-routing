@@ -24,10 +24,10 @@ export default class Router {
     handleUrlChange(){
         if(!location.hash){
             location.assign(`/#${location.pathname}`);
-        } else if (!location.hash.slice(2).startsWith('/')) {
-            location.assign(`#/${location.hash.slice(2)}`);
+        } else if (!location.hash.slice(1).startsWith('/')) {
+            location.assign(`#/${location.hash.slice(1)}`);
         } else {
-            const browserUrlArr = location.hash.split('/').slice(2);
+            const browserUrlArr = location.hash.split('/').slice(1);
             this.findRoute(browserUrlArr);
         }
 
@@ -39,7 +39,6 @@ export default class Router {
             this.renderComponent(this.NotFound);
         }else {
             const params = this.getParamsFromUrl(foundedRoute.path, browserUrlArr);
-            console.log("foundedRoute.path", foundedRoute.path);
             this.renderComponent(foundedRoute, params);
 
         }
@@ -65,8 +64,6 @@ export default class Router {
             const checkGuards = route.guards.every(guard => guard());
             if(!checkGuards) return;
         }
-        //console.log("route", route);
-        //console.log("params", params);
         const breadcrumbs = new Breadcrumb(this.breadcrumb, { path: route.path });
         const newComponent = new route.component(this.target, params);
     }

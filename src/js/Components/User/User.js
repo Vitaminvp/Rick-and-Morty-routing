@@ -11,11 +11,8 @@ export default class User extends Component {
   }
   getUser() {
     getData(`${this.userId}`).then(res => {
-
       this.updateState({user: res});
       AppState.update('ID', {id: this.userId, name: res.name });
-
-      console.log("this.state", this.state);
     }).catch(err => {
       this.error = err;
       this.render();

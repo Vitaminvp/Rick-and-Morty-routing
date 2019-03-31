@@ -11,11 +11,10 @@ export default class Breadcrumb extends Component {
     }
     handleIDChange(state){
         this.updateState(state);
-        console.log("ID", state);
     }
 
     render() {
-        console.log("this.props", this.props);
+        AppState.update('PATH', {});
         return [
             {
                 tag: 'div',
@@ -51,6 +50,7 @@ export default class Breadcrumb extends Component {
                                             value: item === ':id'?  '' : `#/${item}` //this.state ? `${item[i-1]}/${this.state.id}`:
                                         },
                                     ],
+
                                 }
                             }
                         }
